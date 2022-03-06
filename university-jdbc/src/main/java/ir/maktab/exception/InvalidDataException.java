@@ -3,7 +3,6 @@ package ir.maktab.exception;
 public class InvalidDataException extends RuntimeException {
 
     public InvalidDataException() {
-
     }
 
     public InvalidDataException(String message) {
@@ -13,4 +12,5 @@ public class InvalidDataException extends RuntimeException {
     public InvalidDataException(String message, Throwable cause) {
         super(message, cause);
     }
+
 }

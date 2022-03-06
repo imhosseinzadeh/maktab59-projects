@@ -1,6 +1,7 @@
 package ir.maktab.exception;
 
 public class ModificationDataException extends RuntimeException {
+
     public ModificationDataException() {
     }
 
@@ -11,4 +12,5 @@ public class ModificationDataException extends RuntimeException {
     public ModificationDataException(String message, Throwable cause) {
         super(message, cause);
     }
+
 }

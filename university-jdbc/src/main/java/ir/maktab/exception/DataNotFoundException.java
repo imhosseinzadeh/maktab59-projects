@@ -1,6 +1,7 @@
 package ir.maktab.exception;
 
 public class DataNotFoundException extends RuntimeException {
+
     public DataNotFoundException() {
     }
 
