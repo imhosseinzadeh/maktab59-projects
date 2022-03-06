@@ -1,12 +1,12 @@
 create
-database hospital;
+database if not exists hospital;
 
 use
 hospital;
 
 create table patient
 (
-    id            int primary key auto_increment,
+    id            bigint primary key auto_increment,
     address       varchar(50),
     name          varchar(50),
     age           int,
@@ -16,7 +16,7 @@ create table patient
 
 create table doctor
 (
-    id         int primary key auto_increment,
+    id         bigint primary key auto_increment,
     name       varchar(50),
     profession varchar(50),
     seniority  varchar(50)
@@ -24,45 +24,45 @@ create table doctor
 
 create table department
 (
-    id   int primary key auto_increment,
+    id   bigint primary key auto_increment,
     name varchar(50),
     type varchar(50)
 );
 
 create table bed
 (
-    id            int primary key auto_increment,
+    id            bigint primary key auto_increment,
     type          varchar(50),
-    department_id int,
+    department_id bigint,
     foreign key (department_id) references department (id)
 );
 
 create table reception
 (
-    reception_number int primary key auto_increment,
+    reception_number bigint primary key auto_increment,
     reception_date   date,
     discharge_date   date,
-    patient_id       int,
+    patient_id       bigint,
     foreign key (patient_id) references patient (id),
-    doctor_id        int,
+    doctor_id        bigint,
     foreign key (doctor_id) references doctor (id)
 );
 
 
 create table surgery
 (
-    id         int primary key auto_increment,
+    id         bigint primary key auto_increment,
     date_time  datetime,
-    patient_id int,
+    patient_id bigint,
     foreign key (patient_id) references patient (id)
 );
 
 
 create table surgery_doctor
 (
-    id         int primary key auto_increment,
-    surgery_id int,
+    id         bigint primary key auto_increment,
+    surgery_id bigint,
     foreign key (surgery_id) references surgery (id),
-    doctor_id  int,
+    doctor_id  bigint,
     foreign key (doctor_id) references doctor (id)
 );
