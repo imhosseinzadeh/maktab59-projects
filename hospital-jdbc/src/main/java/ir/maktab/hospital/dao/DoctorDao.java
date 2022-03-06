@@ -8,7 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class DoctorDao implements BaseDao<DoctorEntity> {
+public class DoctorDao implements BaseDao<DoctorEntity, Long> {
 
     @Override
     public void save(DoctorEntity doctor) {
@@ -29,12 +29,12 @@ public class DoctorDao implements BaseDao<DoctorEntity> {
     }
 
     @Override
-    public DoctorEntity findById(int doctorId) {
+    public DoctorEntity findById(Long doctorId) {
         final String query = "SELECT * FROM doctor WHERE id = ?";
 
         try (Connection connection = AppDataSource.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
-            ps.setInt(1, doctorId);
+            ps.setLong(1, doctorId);
 
             ResultSet resultSet = ps.executeQuery();
 
@@ -53,4 +53,5 @@ public class DoctorDao implements BaseDao<DoctorEntity> {
 
         return null;
     }
+
 }

@@ -8,7 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class DepartmentDao implements BaseDao<DepartmentEntity> {
+public class DepartmentDao implements BaseDao<DepartmentEntity, Long> {
 
     public void save(DepartmentEntity department) {
         final String query = "INSERT INTO department (name , type) VALUES (?, ?)";
@@ -26,12 +26,13 @@ public class DepartmentDao implements BaseDao<DepartmentEntity> {
 
     }
 
-    public DepartmentEntity findById(int departmentId) {
+    @Override
+    public DepartmentEntity findById(Long departmentId) {
         final String query = "SELECT * FROM department WHERE id = ?";
 
         try (Connection connection = AppDataSource.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
-            ps.setInt(1, departmentId);
+            ps.setLong(1, departmentId);
 
             ResultSet resultSet = ps.executeQuery();
 

@@ -8,7 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class BedDao implements BaseDao<BedEntity> {
+public class BedDao implements BaseDao<BedEntity, Long> {
 
     @Override
     public void save(BedEntity bed) {
@@ -28,12 +28,12 @@ public class BedDao implements BaseDao<BedEntity> {
     }
 
     @Override
-    public BedEntity findById(int bedId) {
+    public BedEntity findById(Long bedId) {
         final String query = "SELECT * FROM bed WHERE id = ?";
 
         try (Connection connection = AppDataSource.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
-            ps.setInt(1, bedId);
+            ps.setLong(1, bedId);
 
             ResultSet resultSet = ps.executeQuery();
 

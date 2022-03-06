@@ -8,7 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class ReceptionDao implements BaseDao<ReceptionEntity> {
+public class ReceptionDao implements BaseDao<ReceptionEntity, Long> {
 
     @Override
     public void save(ReceptionEntity reception) {
@@ -30,12 +30,12 @@ public class ReceptionDao implements BaseDao<ReceptionEntity> {
     }
 
     @Override
-    public ReceptionEntity findById(int receptionId) {
+    public ReceptionEntity findById(Long receptionId) {
         final String query = "SELECT * FROM reception WHERE id = ?";
 
         try (Connection connection = AppDataSource.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
-            ps.setInt(1, receptionId);
+            ps.setLong(1, receptionId);
 
             ResultSet resultSet = ps.executeQuery();
 
@@ -55,4 +55,5 @@ public class ReceptionDao implements BaseDao<ReceptionEntity> {
 
         return null;
     }
+
 }
