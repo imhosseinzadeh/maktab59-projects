@@ -2,9 +2,24 @@ package ir.maktab.entity;
 
 import java.io.Serializable;
 
-public interface BaseEntity<I extends Serializable> extends Serializable {
-    I getId();
+public abstract class BaseEntity<I extends Serializable> implements Serializable {
 
-    void setId(I id);
+    private I id;
+
+    public BaseEntity() {
+    }
+
+    public BaseEntity(I id) {
+        this.id = id;
+    }
+
+    public I getId() {
+        return id;
+    }
+
+    public void setId(I id) {
+        this.id = id;
+    }
+
 
 }
