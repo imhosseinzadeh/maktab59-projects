@@ -12,6 +12,11 @@ public class BedEntity implements BaseEntity<Long> {
         this.departmentId = departmentId;
     }
 
+    public BedEntity(String type, Long departmentId) {
+        this.type = type;
+        this.departmentId = departmentId;
+    }
+
     @Override
     public Long getId() {
         return id;
