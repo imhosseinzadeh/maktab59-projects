@@ -1,13 +1,12 @@
 package ir.maktab.hospital.entity;
 
-public class DepartmentEntity implements BaseEntity<Long> {
+public class DepartmentEntity extends BaseEntity<Long> {
 
-    private Long id;
     private String name;
     private String type;
 
     public DepartmentEntity(Long id, String name, String type) {
-        this.id = id;
+        super(id);
         this.name = name;
         this.type = type;
     }
@@ -15,16 +14,6 @@ public class DepartmentEntity implements BaseEntity<Long> {
     public DepartmentEntity(String name, String type) {
         this.name = name;
         this.type = type;
-    }
-
-    @Override
-    public Long getId() {
-        return id;
-    }
-
-    @Override
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -46,7 +35,7 @@ public class DepartmentEntity implements BaseEntity<Long> {
     @Override
     public String toString() {
         return "Department{" +
-                "id=" + id +
+                "id=" + getId() +
                 ", name='" + name + '\'' +
                 ", type='" + type + '\'' +
                 '}';

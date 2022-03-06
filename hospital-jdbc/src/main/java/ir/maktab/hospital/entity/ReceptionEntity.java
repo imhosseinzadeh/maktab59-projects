@@ -1,15 +1,14 @@
 package ir.maktab.hospital.entity;
 
-public class ReceptionEntity implements BaseEntity<Long> {
+public class ReceptionEntity extends BaseEntity<Long> {
 
-    private Long id;
     private String receptionDate;
     private String dischargeDate;
     private Long patientId;
     private Long doctorId;
 
     public ReceptionEntity(Long id, String receptionDate, String dischargeDate, Long patientId, Long doctorId) {
-        this.id = id;
+        super(id);
         this.receptionDate = receptionDate;
         this.dischargeDate = dischargeDate;
         this.patientId = patientId;
@@ -21,16 +20,6 @@ public class ReceptionEntity implements BaseEntity<Long> {
         this.dischargeDate = dischargeDate;
         this.patientId = patientId;
         this.doctorId = doctorId;
-    }
-
-    @Override
-    public Long getId() {
-        return id;
-    }
-
-    @Override
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getReceptionDate() {
@@ -68,7 +57,7 @@ public class ReceptionEntity implements BaseEntity<Long> {
     @Override
     public String toString() {
         return "ReceptionEntity{" +
-                "id=" + id +
+                "id=" + getId() +
                 ", receptionDate='" + receptionDate + '\'' +
                 ", dischargeDate='" + dischargeDate + '\'' +
                 ", patientId=" + patientId +
