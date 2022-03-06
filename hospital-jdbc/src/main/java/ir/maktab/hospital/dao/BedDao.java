@@ -17,7 +17,7 @@ public class BedDao implements BaseDao<BedEntity> {
         try (Connection connection = AppDataSource.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
             ps.setString(1, bed.getType());
-            ps.setInt(2, bed.getDepartmentId());
+            ps.setLong(2, bed.getDepartmentId());
 
             ps.executeUpdate();
 
@@ -38,9 +38,9 @@ public class BedDao implements BaseDao<BedEntity> {
             ResultSet resultSet = ps.executeQuery();
 
             if (resultSet.next()) {
-                int id = resultSet.getInt(1);
+                Long id = resultSet.getLong(1);
                 String type = resultSet.getString(2);
-                int departmentId = resultSet.getInt(3);
+                Long departmentId = resultSet.getLong(3);
 
                 return new BedEntity(id, type, departmentId);
             }
