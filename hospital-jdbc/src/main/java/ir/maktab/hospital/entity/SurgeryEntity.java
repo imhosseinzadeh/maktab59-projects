@@ -1,12 +1,13 @@
 package ir.maktab.hospital.entity;
 
-public class SurgeryEntity extends BaseEntity {
+public class SurgeryEntity implements BaseEntity<Long> {
 
+    private Long id;
     private String dateTime;
     private int patientId;
 
-    public SurgeryEntity(int id, String dateTime, int patientId) {
-        super(id);
+    public SurgeryEntity(Long id, String dateTime, int patientId) {
+        this.id = id;
         this.dateTime = dateTime;
         this.patientId = patientId;
     }
@@ -14,6 +15,16 @@ public class SurgeryEntity extends BaseEntity {
     public SurgeryEntity(String dateTime, int patientId) {
         this.dateTime = dateTime;
         this.patientId = patientId;
+    }
+
+    @Override
+    public Long getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getDateTime() {
@@ -35,7 +46,7 @@ public class SurgeryEntity extends BaseEntity {
     @Override
     public String toString() {
         return "Surgery{" +
-                "id=" + getId() +
+                "id=" + id +
                 ", dateTime='" + dateTime + '\'' +
                 ", patientId=" + patientId +
                 '}';
