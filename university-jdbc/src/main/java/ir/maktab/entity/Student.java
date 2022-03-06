@@ -127,7 +127,7 @@ public class Student implements BaseEntity<Integer> {
             return this;
         }
 
-        public StudentBuilder major (Major major){
+        public StudentBuilder major(Major major) {
             this.major = major;
             return this;
         }
