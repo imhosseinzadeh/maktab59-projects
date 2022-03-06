@@ -1,19 +1,25 @@
 package ir.maktab.hospital.entity;
 
-public class BedEntity extends BaseEntity {
+public class BedEntity implements BaseEntity<Long> {
 
+    private Long id;
     private String type;
-    private int departmentId;
+    private Long departmentId;
 
-    public BedEntity(int id, String type, int departmentId) {
-        super(id);
+    public BedEntity(Long id, String type, Long departmentId) {
+        this.id = id;
         this.type = type;
         this.departmentId = departmentId;
     }
 
-    public BedEntity(String type, int departmentId) {
-        this.type = type;
-        this.departmentId = departmentId;
+    @Override
+    public Long getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getType() {
@@ -24,18 +30,18 @@ public class BedEntity extends BaseEntity {
         this.type = type;
     }
 
-    public int getDepartmentId() {
+    public Long getDepartmentId() {
         return departmentId;
     }
 
-    public void setDepartmentId(int departmentId) {
+    public void setDepartmentId(Long departmentId) {
         this.departmentId = departmentId;
     }
 
     @Override
     public String toString() {
-        return "Bed{" +
-                "id=" + getId() +
+        return "BedEntity{" +
+                "id=" + id +
                 ", type='" + type + '\'' +
                 ", departmentId=" + departmentId +
                 '}';
