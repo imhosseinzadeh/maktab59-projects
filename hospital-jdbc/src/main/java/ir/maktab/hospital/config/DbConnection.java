@@ -7,6 +7,7 @@ import java.sql.SQLException;
 /**
  * @deprecated Better to use Datasource instead of DriverManager to get Connection
  */
+@Deprecated(forRemoval = true)
 public class DbConnection {
 
     private DbConnection() {
