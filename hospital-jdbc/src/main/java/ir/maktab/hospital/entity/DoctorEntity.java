@@ -1,13 +1,14 @@
 package ir.maktab.hospital.entity;
 
-public class DoctorEntity extends BaseEntity {
+public class DoctorEntity implements BaseEntity<Long> {
 
+    private Long id;
     private String name;
     private String profession;
     private String seniority;
 
-    public DoctorEntity(int id, String name, String profession, String seniority) {
-        super(id);
+    public DoctorEntity(Long id, String name, String profession, String seniority) {
+        this.id = id;
         this.name = name;
         this.profession = profession;
         this.seniority = seniority;
@@ -17,6 +18,16 @@ public class DoctorEntity extends BaseEntity {
         this.name = name;
         this.profession = profession;
         this.seniority = seniority;
+    }
+
+    @Override
+    public Long getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
