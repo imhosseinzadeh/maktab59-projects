@@ -1,21 +1,11 @@
 package ir.maktab.hospital.entity;
 
-public class BaseEntity {
-    private int id;
+import java.io.Serializable;
 
-    public BaseEntity() {
-    }
+public interface BaseEntity<I extends Serializable> extends Serializable {
 
-    public BaseEntity(int id) {
-        this.id = id;
-    }
+    I getId();
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+    void setId(I id);
 
 }
