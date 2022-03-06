@@ -1,3 +1,5 @@
 # maktab59-projects
 
-maktab sharif small projects in class and homeworks
+Maktab Sharif Coding Bootcamp small projects in class and homework.
+
+These projects were created using JDBC or Hibernate ORM.
