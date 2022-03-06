@@ -38,7 +38,7 @@ public class SurgeryDoctorDao implements BaseDao<SurgeryDoctor> {
             ResultSet resultSet = ps.executeQuery();
 
             if (resultSet.next()) {
-                int id = resultSet.getInt(1);
+                Long id = resultSet.getLong(1);
                 int surgeryId = resultSet.getInt(2);
                 int doctorId = resultSet.getInt(3);
                 return new SurgeryDoctor(id, surgeryId, doctorId);

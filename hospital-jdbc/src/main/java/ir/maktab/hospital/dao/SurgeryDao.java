@@ -38,7 +38,7 @@ public class SurgeryDao implements BaseDao<SurgeryEntity> {
             ResultSet resultSet = ps.executeQuery();
 
             if (resultSet.next()) {
-                int id = resultSet.getInt(1);
+                Long id = resultSet.getLong(1);
                 String dateTime = resultSet.getString(2);
                 int patientId = resultSet.getInt(3);
                 return new SurgeryEntity(id, dateTime, patientId);
