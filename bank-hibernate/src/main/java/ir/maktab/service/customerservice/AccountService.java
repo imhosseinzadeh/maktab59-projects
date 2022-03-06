@@ -12,6 +12,7 @@ public class AccountService extends AbstractCrudService<Account, String> {
         setBaseDao(new AccountDao());
     }
 
+    @Override
     public AccountDao getBaseDao() {
         return (AccountDao) super.getBaseDao();
     }
