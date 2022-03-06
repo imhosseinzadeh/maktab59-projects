@@ -1,8 +1,7 @@
 package ir.maktab.hospital.entity;
 
-public class PatientEntity implements BaseEntity<Long> {
+public class PatientEntity extends BaseEntity<Long> {
 
-    private Long id;
     private String address;
     private String name;
     private int age;
@@ -10,7 +9,7 @@ public class PatientEntity implements BaseEntity<Long> {
     private String gender;
 
     public PatientEntity(Long id, String address, String name, int age, String dateOfBirth, String gender) {
-        this.id = id;
+        super(id);
         this.address = address;
         this.name = name;
         this.age = age;
@@ -24,16 +23,6 @@ public class PatientEntity implements BaseEntity<Long> {
         this.age = age;
         this.dateOfBirth = dateOfBirth;
         this.gender = gender;
-    }
-
-    @Override
-    public Long getId() {
-        return id;
-    }
-
-    @Override
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getAddress() {
@@ -79,7 +68,7 @@ public class PatientEntity implements BaseEntity<Long> {
     @Override
     public String toString() {
         return "Patient{" +
-                "id=" + id +
+                "id=" + getId() +
                 ", address='" + address + '\'' +
                 ", name='" + name + '\'' +
                 ", age=" + age +
