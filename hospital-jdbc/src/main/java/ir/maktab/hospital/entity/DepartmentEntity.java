@@ -46,7 +46,7 @@ public class DepartmentEntity implements BaseEntity<Long> {
     @Override
     public String toString() {
         return "Department{" +
-                "id=" + getId() +
+                "id=" + id +
                 ", name='" + name + '\'' +
                 ", type='" + type + '\'' +
                 '}';

@@ -57,7 +57,7 @@ public class DoctorEntity implements BaseEntity<Long> {
     @Override
     public String toString() {
         return "Doctor{" +
-                "id=" + getId() +
+                "id=" + id +
                 ", name='" + name + '\'' +
                 ", profession='" + profession + '\'' +
                 ", seniority='" + seniority + '\'' +
