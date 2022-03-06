@@ -1,28 +1,16 @@
 package ir.maktab.entity;
 
-import java.util.Objects;
+public class Major extends BaseEntity<Integer> {
 
-public class Major implements BaseEntity<Integer> {
-    private Integer id;
     private String name;
 
     public Major(Integer id) {
-        this.id = id;
+        super(id);
     }
 
     public Major(Integer id, String name) {
-        this.id = id;
+        super(id);
         this.name = name;
-    }
-
-    @Override
-    public Integer getId() {
-        return id;
-    }
-
-    @Override
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -34,23 +22,11 @@ public class Major implements BaseEntity<Integer> {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Major major = (Major) o;
-        return Objects.equals(id, major.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
-
-    @Override
     public String toString() {
         return "Major{" +
-                "id=" + id +
+                "id=" + getId() +
                 ", name='" + name + '\'' +
                 '}';
     }
+
 }

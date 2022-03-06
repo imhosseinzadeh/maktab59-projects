@@ -1,27 +1,14 @@
 package ir.maktab.entity;
 
-import java.util.Objects;
+public class Course extends BaseEntity<Integer> {
 
-public class Course implements BaseEntity<Integer> {
-    private Integer id;
     private String name;
     private Integer unit;
 
-
     public Course(Integer id, String name, Integer unit) {
-        this.id = id;
+        super(id);
         this.name = name;
         this.unit = unit;
-    }
-
-    @Override
-    public Integer getId() {
-        return id;
-    }
-
-    @Override
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -41,22 +28,9 @@ public class Course implements BaseEntity<Integer> {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Course course = (Course) o;
-        return Objects.equals(id, course.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
-
-    @Override
     public String toString() {
         return "Course{" +
-                "id=" + id +
+                "id=" + getId() +
                 ", name='" + name + '\'' +
                 ", unit=" + unit +
                 '}';

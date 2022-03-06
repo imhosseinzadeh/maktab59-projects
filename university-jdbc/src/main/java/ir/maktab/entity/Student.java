@@ -1,18 +1,17 @@
 package ir.maktab.entity;
 
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
-public class Student implements BaseEntity<Integer> {
-    private Integer id;
+public class Student extends BaseEntity<Integer> {
+
     private String name;
     private String familyName;
     private Major major;
     private Set<Course> courses;
 
     private Student(StudentBuilder builder) {
-        this.id = builder.id;
+        super(builder.id);
         this.name = builder.name;
         this.familyName = builder.familyName;
         this.major = builder.major;
@@ -21,16 +20,6 @@ public class Student implements BaseEntity<Integer> {
 
     public static StudentBuilder builder(Major major) {
         return new StudentBuilder(major);
-    }
-
-    @Override
-    public Integer getId() {
-        return id;
-    }
-
-    @Override
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -77,22 +66,9 @@ public class Student implements BaseEntity<Integer> {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Student student = (Student) o;
-        return Objects.equals(id, student.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
-
-    @Override
     public String toString() {
         return "Student{" +
-                "id=" + id +
+                "id=" + getId() +
                 ", name='" + name + '\'' +
                 ", familyName='" + familyName + '\'' +
                 ", major=" + major +
@@ -140,6 +116,7 @@ public class Student implements BaseEntity<Integer> {
         public Student build() {
             return new Student(this);
         }
+
     }
 
 }

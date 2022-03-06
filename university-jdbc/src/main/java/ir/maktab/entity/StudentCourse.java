@@ -1,9 +1,7 @@
 package ir.maktab.entity;
 
-import java.util.Objects;
+public class StudentCourse extends BaseEntity<Integer> {
 
-public class StudentCourse implements BaseEntity<Integer> {
-    private Integer id;
     private Integer studentId;
     private Integer courseId;
     private String courseName;
@@ -17,21 +15,11 @@ public class StudentCourse implements BaseEntity<Integer> {
     }
 
     public StudentCourse(Integer id, Integer studentId, Course course) {
-        this.id = id;
+        super(id);
         this.studentId = studentId;
         this.courseId = course.getId();
         this.courseName = course.getName();
         this.courseUnit = course.getUnit();
-    }
-
-    @Override
-    public Integer getId() {
-        return id;
-    }
-
-    @Override
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public Integer getStudentId() {
@@ -67,22 +55,9 @@ public class StudentCourse implements BaseEntity<Integer> {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        StudentCourse that = (StudentCourse) o;
-        return Objects.equals(id, that.id) && Objects.equals(studentId, that.studentId) && Objects.equals(courseId, that.courseId);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, studentId, courseId);
-    }
-
-    @Override
     public String toString() {
         return "StudentCourse{" +
-                "id=" + id +
+                "id=" + getId() +
                 ", studentId=" + studentId +
                 ", courseId=" + courseId +
                 '}';
