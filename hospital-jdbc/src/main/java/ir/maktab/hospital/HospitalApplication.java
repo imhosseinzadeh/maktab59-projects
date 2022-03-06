@@ -16,11 +16,11 @@ public class HospitalApplication {
 
         PatientEntity patient = new PatientEntity("ahwaz", "ali", 18, "2000-09-28", "male");
         PATIENT_SERVICE.save(patient);
-        PatientEntity loadPatient = PATIENT_SERVICE.findById(1);
+        PatientEntity loadPatient = PATIENT_SERVICE.findById(1L);
 
         DoctorEntity doctor = new DoctorEntity(1L, "reza ", "eye", "seniority");
         DOCTOR_SERVICE.save(doctor);
-        DoctorEntity byId = DOCTOR_SERVICE.findById(1);
+        DoctorEntity byId = DOCTOR_SERVICE.findById(1L);
         System.out.println(byId);
 
         System.out.println(loadPatient);
