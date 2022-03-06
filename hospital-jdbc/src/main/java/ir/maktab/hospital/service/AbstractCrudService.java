@@ -3,11 +3,13 @@ package ir.maktab.hospital.service;
 import ir.maktab.hospital.dao.BaseDao;
 import ir.maktab.hospital.entity.BaseEntity;
 
-public class AbstractCrudService<E extends BaseEntity> {
+import java.io.Serializable;
 
-    protected final BaseDao<E> baseDao;
+public class AbstractCrudService<E extends BaseEntity<I>, I extends Serializable> {
 
-    public AbstractCrudService(BaseDao<E> baseDao) {
+    protected final BaseDao<E, I> baseDao;
+
+    public AbstractCrudService(BaseDao<E, I> baseDao) {
         this.baseDao = baseDao;
     }
 
@@ -15,7 +17,7 @@ public class AbstractCrudService<E extends BaseEntity> {
         baseDao.save(bed);
     }
 
-    public E findById(int id) {
+    public E findById(I id) {
         return baseDao.findById(id);
     }
 
