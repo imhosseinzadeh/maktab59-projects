@@ -3,16 +3,16 @@ package ir.maktab.hospital.entity;
 public class SurgeryDoctor implements BaseEntity<Long> {
 
     private Long id;
-    private int surgeryId;
-    private int doctorId;
+    private Long surgeryId;
+    private Long doctorId;
 
-    public SurgeryDoctor(Long id, int surgeryId, int doctorId) {
+    public SurgeryDoctor(Long id, Long surgeryId, Long doctorId) {
         this.id = id;
         this.surgeryId = surgeryId;
         this.doctorId = doctorId;
     }
 
-    public SurgeryDoctor(int surgeryId, int doctorId) {
+    public SurgeryDoctor(Long surgeryId, Long doctorId) {
         this.surgeryId = surgeryId;
         this.doctorId = doctorId;
     }
@@ -27,19 +27,19 @@ public class SurgeryDoctor implements BaseEntity<Long> {
         this.id = id;
     }
 
-    public int getSurgeryId() {
+    public Long getSurgeryId() {
         return surgeryId;
     }
 
-    public void setSurgeryId(int surgeryId) {
+    public void setSurgeryId(Long surgeryId) {
         this.surgeryId = surgeryId;
     }
 
-    public int getDoctorId() {
+    public Long getDoctorId() {
         return doctorId;
     }
 
-    public void setDoctorId(int doctorId) {
+    public void setDoctorId(Long doctorId) {
         this.doctorId = doctorId;
     }
 

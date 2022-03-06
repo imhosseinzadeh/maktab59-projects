@@ -5,10 +5,10 @@ public class ReceptionEntity implements BaseEntity<Long> {
     private Long id;
     private String receptionDate;
     private String dischargeDate;
-    private int patientId;
-    private int doctorId;
+    private Long patientId;
+    private Long doctorId;
 
-    public ReceptionEntity(Long id, String receptionDate, String dischargeDate, int patientId, int doctorId) {
+    public ReceptionEntity(Long id, String receptionDate, String dischargeDate, Long patientId, Long doctorId) {
         this.id = id;
         this.receptionDate = receptionDate;
         this.dischargeDate = dischargeDate;
@@ -16,7 +16,7 @@ public class ReceptionEntity implements BaseEntity<Long> {
         this.doctorId = doctorId;
     }
 
-    public ReceptionEntity(String receptionDate, String dischargeDate, int patientId, int doctorId) {
+    public ReceptionEntity(String receptionDate, String dischargeDate, Long patientId, Long doctorId) {
         this.receptionDate = receptionDate;
         this.dischargeDate = dischargeDate;
         this.patientId = patientId;
@@ -49,19 +49,19 @@ public class ReceptionEntity implements BaseEntity<Long> {
         this.dischargeDate = dischargeDate;
     }
 
-    public int getPatientId() {
+    public Long getPatientId() {
         return patientId;
     }
 
-    public void setPatientId(int patientId) {
+    public void setPatientId(Long patientId) {
         this.patientId = patientId;
     }
 
-    public int getDoctorId() {
+    public Long getDoctorId() {
         return doctorId;
     }
 
-    public void setDoctorId(int doctorId) {
+    public void setDoctorId(Long doctorId) {
         this.doctorId = doctorId;
     }
 

@@ -16,8 +16,8 @@ public class SurgeryDoctorDao implements BaseDao<SurgeryDoctor> {
 
         try (Connection connection = AppDataSource.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
-            ps.setInt(1, surgeryDoctor.getSurgeryId());
-            ps.setInt(2, surgeryDoctor.getDoctorId());
+            ps.setLong(1, surgeryDoctor.getSurgeryId());
+            ps.setLong(2, surgeryDoctor.getDoctorId());
 
             ps.executeUpdate();
 
@@ -39,8 +39,8 @@ public class SurgeryDoctorDao implements BaseDao<SurgeryDoctor> {
 
             if (resultSet.next()) {
                 Long id = resultSet.getLong(1);
-                int surgeryId = resultSet.getInt(2);
-                int doctorId = resultSet.getInt(3);
+                Long surgeryId = resultSet.getLong(2);
+                Long doctorId = resultSet.getLong(3);
                 return new SurgeryDoctor(id, surgeryId, doctorId);
             }
 

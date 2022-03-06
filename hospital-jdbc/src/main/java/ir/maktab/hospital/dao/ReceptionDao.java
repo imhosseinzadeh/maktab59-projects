@@ -18,8 +18,8 @@ public class ReceptionDao implements BaseDao<ReceptionEntity> {
              PreparedStatement ps = connection.prepareStatement(query)) {
             ps.setString(1, reception.getReceptionDate());
             ps.setString(2, reception.getDischargeDate());
-            ps.setInt(3, reception.getPatientId());
-            ps.setInt(4, reception.getDoctorId());
+            ps.setLong(3, reception.getPatientId());
+            ps.setLong(4, reception.getDoctorId());
 
             ps.executeUpdate();
 
@@ -43,8 +43,8 @@ public class ReceptionDao implements BaseDao<ReceptionEntity> {
                 Long id = resultSet.getLong(1);
                 String receptionDate = resultSet.getString(2);
                 String dischargeDate = resultSet.getString(3);
-                int patientId = resultSet.getInt(4);
-                int doctorId = resultSet.getInt(5);
+                Long patientId = resultSet.getLong(4);
+                Long doctorId = resultSet.getLong(5);
 
                 return new ReceptionEntity(id, receptionDate, dischargeDate, patientId, doctorId);
             }
