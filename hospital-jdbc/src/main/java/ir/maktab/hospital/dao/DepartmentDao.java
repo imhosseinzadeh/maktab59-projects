@@ -36,7 +36,7 @@ public class DepartmentDao implements BaseDao<DepartmentEntity> {
             ResultSet resultSet = ps.executeQuery();
 
             if (resultSet.next()) {
-                int id = resultSet.getInt(1);
+                Long id = resultSet.getLong(1);
                 String name = resultSet.getString(2);
                 String type = resultSet.getString(3);
 
