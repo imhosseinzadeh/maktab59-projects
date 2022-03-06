@@ -1,6 +1,6 @@
 package ir.maktab.hospital.dao;
 
-import ir.maktab.hospital.config.MyDataSource;
+import ir.maktab.hospital.config.AppDataSource;
 import ir.maktab.hospital.entity.DepartmentEntity;
 
 import java.sql.Connection;
@@ -13,7 +13,7 @@ public class DepartmentDao implements BaseDao<DepartmentEntity> {
     public void save(DepartmentEntity department) {
         final String query = "INSERT INTO department (name , type) VALUES (?, ?)";
 
-        try (Connection connection = MyDataSource.getConnection();
+        try (Connection connection = AppDataSource.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
             ps.setString(1, department.getName());
             ps.setString(2, department.getType());
@@ -29,7 +29,7 @@ public class DepartmentDao implements BaseDao<DepartmentEntity> {
     public DepartmentEntity findById(int departmentId) {
         final String query = "SELECT * FROM department WHERE id = ?";
 
-        try (Connection connection = MyDataSource.getConnection();
+        try (Connection connection = AppDataSource.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
             ps.setInt(1, departmentId);
 

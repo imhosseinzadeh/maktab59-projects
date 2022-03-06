@@ -1,6 +1,6 @@
 package ir.maktab.hospital.dao;
 
-import ir.maktab.hospital.config.MyDataSource;
+import ir.maktab.hospital.config.AppDataSource;
 import ir.maktab.hospital.entity.DoctorEntity;
 
 import java.sql.Connection;
@@ -14,7 +14,7 @@ public class DoctorDao implements BaseDao<DoctorEntity> {
     public void save(DoctorEntity doctor) {
         final String query = "INSERT INTO doctor (name , profession, seniority) VALUES (?, ?, ?)";
 
-        try (Connection connection = MyDataSource.getConnection();
+        try (Connection connection = AppDataSource.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
             ps.setString(1, doctor.getName());
             ps.setString(2, doctor.getProfession());
@@ -32,7 +32,7 @@ public class DoctorDao implements BaseDao<DoctorEntity> {
     public DoctorEntity findById(int doctorId) {
         final String query = "SELECT * FROM doctor WHERE id = ?";
 
-        try (Connection connection = MyDataSource.getConnection();
+        try (Connection connection = AppDataSource.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
             ps.setInt(1, doctorId);
 

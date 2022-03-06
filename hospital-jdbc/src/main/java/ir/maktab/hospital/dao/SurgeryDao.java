@@ -1,6 +1,6 @@
 package ir.maktab.hospital.dao;
 
-import ir.maktab.hospital.config.MyDataSource;
+import ir.maktab.hospital.config.AppDataSource;
 import ir.maktab.hospital.entity.SurgeryEntity;
 
 import java.sql.Connection;
@@ -14,7 +14,7 @@ public class SurgeryDao implements BaseDao<SurgeryEntity> {
     public void save(SurgeryEntity surgery) {
         final String query = "INSERT INTO surgery (date_time, patient_id) VALUES (?, ?)";
 
-        try (Connection connection = MyDataSource.getConnection();
+        try (Connection connection = AppDataSource.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
             ps.setString(1, surgery.getDateTime());
             ps.setInt(2, surgery.getPatientId());
@@ -31,7 +31,7 @@ public class SurgeryDao implements BaseDao<SurgeryEntity> {
     public SurgeryEntity findById(int surgeryId) {
         final String query = "SELECT * FROM surgery WHERE id = ?";
 
-        try (Connection connection = MyDataSource.getConnection();
+        try (Connection connection = AppDataSource.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
             ps.setInt(1, surgeryId);
 

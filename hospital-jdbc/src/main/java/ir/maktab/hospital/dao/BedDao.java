@@ -1,6 +1,6 @@
 package ir.maktab.hospital.dao;
 
-import ir.maktab.hospital.config.MyDataSource;
+import ir.maktab.hospital.config.AppDataSource;
 import ir.maktab.hospital.entity.BedEntity;
 
 import java.sql.Connection;
@@ -14,7 +14,7 @@ public class BedDao implements BaseDao<BedEntity> {
     public void save(BedEntity bed) {
         final String query = "INSERT INTO bed (type , department_id) VALUES (?, ?)";
 
-        try (Connection connection = MyDataSource.getConnection();
+        try (Connection connection = AppDataSource.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
             ps.setString(1, bed.getType());
             ps.setInt(2, bed.getDepartmentId());
@@ -31,7 +31,7 @@ public class BedDao implements BaseDao<BedEntity> {
     public BedEntity findById(int bedId) {
         final String query = "SELECT * FROM bed WHERE id = ?";
 
-        try (Connection connection = MyDataSource.getConnection();
+        try (Connection connection = AppDataSource.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
             ps.setInt(1, bedId);
 
