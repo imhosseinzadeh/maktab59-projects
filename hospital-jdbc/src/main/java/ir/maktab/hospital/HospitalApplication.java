@@ -5,7 +5,7 @@ import ir.maktab.hospital.entity.PatientEntity;
 import ir.maktab.hospital.service.DoctorService;
 import ir.maktab.hospital.service.PatientService;
 
-public class hospitalApplication {
+public class HospitalApplication {
 
     private static final PatientService PATIENT_SERVICE = new PatientService();
     private static final DoctorService DOCTOR_SERVICE = new DoctorService();
