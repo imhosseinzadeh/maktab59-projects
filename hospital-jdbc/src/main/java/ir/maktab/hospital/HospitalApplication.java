@@ -18,7 +18,7 @@ public class HospitalApplication {
         PATIENT_SERVICE.save(patient);
         PatientEntity loadPatient = PATIENT_SERVICE.findById(1);
 
-        DoctorEntity doctor = new DoctorEntity(1, "reza ", "eye", "seniority");
+        DoctorEntity doctor = new DoctorEntity(1L, "reza ", "eye", "seniority");
         DOCTOR_SERVICE.save(doctor);
         DoctorEntity byId = DOCTOR_SERVICE.findById(1);
         System.out.println(byId);

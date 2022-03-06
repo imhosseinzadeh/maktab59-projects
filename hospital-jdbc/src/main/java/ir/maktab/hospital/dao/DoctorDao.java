@@ -39,7 +39,7 @@ public class DoctorDao implements BaseDao<DoctorEntity> {
             ResultSet resultSet = ps.executeQuery();
 
             if (resultSet.next()) {
-                int id = resultSet.getInt(1);
+                Long id = resultSet.getLong(1);
                 String name = resultSet.getString(2);
                 String profession = resultSet.getString(3);
                 String seniority = resultSet.getString(4);
