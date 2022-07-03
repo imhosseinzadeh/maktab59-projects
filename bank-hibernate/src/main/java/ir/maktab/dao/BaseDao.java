@@ -44,7 +44,6 @@ public abstract class BaseDao<E extends BaseEntity<I>, I extends Serializable> {
                 .getResultList();
     }
 
-
     public boolean contains(E entity) {
         return entityManager.contains(entity);
     }
@@ -52,9 +51,9 @@ public abstract class BaseDao<E extends BaseEntity<I>, I extends Serializable> {
     public boolean containsById(I id) {
         try {
             load(id);
+            return true;
         } catch (Exception e) {
             return false;
         }
-        return true;
     }
 }

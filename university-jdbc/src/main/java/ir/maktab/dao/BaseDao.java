@@ -20,10 +20,10 @@ public interface BaseDao<T extends BaseEntity<I>, I extends Number> {
     default boolean contains(I id) {
         try {
             loadById(id);
+            return true;
         } catch (DataNotFoundException e) {
             return false;
         }
-        return true;
     }
 
 }
