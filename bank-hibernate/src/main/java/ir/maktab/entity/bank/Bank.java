@@ -2,11 +2,11 @@ package ir.maktab.entity.bank;
 
 import ir.maktab.entity.BaseEntity;
 import ir.maktab.entity.customer.Customer;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 

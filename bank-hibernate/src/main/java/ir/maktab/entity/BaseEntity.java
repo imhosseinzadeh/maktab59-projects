@@ -3,7 +3,7 @@ package ir.maktab.entity;
 import lombok.AccessLevel;
 import lombok.Getter;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
